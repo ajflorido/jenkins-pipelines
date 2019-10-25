@@ -3,8 +3,8 @@
 // Script Method //
 node {
     docker.image('centos:7)').inside {
-        steps {
-            sh 'ls -lah'
+        stage 'InitialStage'
+            sh 'pwd'
         }
     }
 }
