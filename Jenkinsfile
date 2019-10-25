@@ -1,8 +1,7 @@
 #!/usr/bin/env groovy
 
-pipeline {
+pipeline {  
     agent any
-#    docker.image('centos:7)').inside { 
     stages {
         stage('HelloWorld') {
             steps {
