@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-def username = 'Jenkins'
+def username = "Jenkins"
 
 pipeline {
     agent any 
