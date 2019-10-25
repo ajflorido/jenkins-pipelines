@@ -2,8 +2,16 @@
 def username = 'Jenkins'
 
 pipeline {
-    agent any 
+    agent any
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    } 
     stages {
+        stage('Greetings') {
+            steps {
+                echo "${params.Greeting} World!"
+            }
+        }
         stage('HelloWorld') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
@@ -17,8 +25,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "Build"'
-                }
             }
         }
+    }
     
 }
