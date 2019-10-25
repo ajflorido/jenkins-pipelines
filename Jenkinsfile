@@ -4,7 +4,6 @@
 node {
     docker.image('centos:7)').inside {
         stage 'InitialStage'
-            sh 'pwd'
-        }
+            sh 'cat /etc/redhat-release'
     }
 }
