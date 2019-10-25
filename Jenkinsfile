@@ -1,12 +1,13 @@
 #!/usr/bin/env groovy
-// def username = 'Jenkins'
+def username = 'Jenkins'
 
 pipeline {
     agent any 
     stages {
         stage('HelloWorld') {
             steps {
-                sh 'echo "Hello Mr. World"'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                sh 'echo "Hello Mr. ${Jenkins}"'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
