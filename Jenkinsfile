@@ -1,9 +1,22 @@
 #!/usr/bin/env groovy
 
-// Script Method //
-node {
-    docker.image('centos:7)').inside {
-        stage 'InitialStage'
-            sh 'cat /etc/redhat-release'
-    }
+pipeline {
+    agent any 
+    stages {
+        stage('HelloWorld') {
+            steps {
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'echo "Build"'
+                }
+            }
+        }
+    
 }
