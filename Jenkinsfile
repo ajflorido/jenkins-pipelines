@@ -9,7 +9,7 @@ podTemplate(label: 'docker-node', containers: [
             sh 'mvn -version'
             }
     node ('docker-node') {
-        stage('Python'){
+        stage('python'){
         container('python') {
             sh "python --version"
                     }    
