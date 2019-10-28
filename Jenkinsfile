@@ -2,9 +2,7 @@
 def username = 'Jenkins'
 
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
-    }
+    agent any
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     } 
