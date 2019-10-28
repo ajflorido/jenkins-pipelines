@@ -4,7 +4,7 @@ podTemplate(label: 'docker-node', containers: [containerTemplate(name: 'maven', 
 node ('docker-node') {
     stage('Build') {
       container('maven') {
-            sh 'mvn -B'
+            sh 'mvn -version'
             }
         }
     }
