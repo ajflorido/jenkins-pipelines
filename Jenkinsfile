@@ -1,13 +1,19 @@
-//def label = "docker-jenkins-${UUID.randomUUID().toString()"}
-def label = "docker-jenkins-${UUID.randomUUID().toString()}"
-
-podTemplate(label: label, containers: [containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat')])
-    {
-node (label) {
-    stage('Build') {
-      container('maven') {
-            sh 'mvn -version'
+pipeline {
+    agent none 
+        stages {
+            stage('Example Build') {
+                agent { docker 'maven:3-alpine' } 
+                    steps {
+                        echo 'Hello, Maven'
+                        sh 'mvn --version'
+                    }
+                }
+            stage('Example Test') {
+                agent { docker 'openjdk:8-jre' } 
+                    steps {
+                        echo 'Hello, JDK'
+                        sh 'java -version'
             }
         }
     }
-}    
+}
