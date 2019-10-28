@@ -7,7 +7,6 @@ node (label) {
     stage('Build') {
       container('maven') {
             sh 'mvn -version'
-            sh 'java -jar jenkins-cli.jar -s http://jenkins:8080/ who-am-i'
             }
         }
     }
